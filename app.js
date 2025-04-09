@@ -1,4 +1,4 @@
-// CDNでPDF.jsのワーカーを指定（これがないとエラーになる）
+// ✅ PDF.jsのワーカーをCDNで指定（GitHub Pagesでも確実に動作）
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js';
 
 document.getElementById('pdf-upload').addEventListener('change', async (e) => {
@@ -18,16 +18,13 @@ document.getElementById('pdf-upload').addEventListener('change', async (e) => {
       const content = await page.getTextContent();
       const lines = content.items.map(item => item.str.trim()).filter(t => t.length > 0);
 
-      // コンソール確認用（必要なら有効化）
-      // console.log(`--- Page ${i} ---`, lines);
-
-      // 3行ずつ取り出して名言判定
+      // ページ内を3行ずつスライドして抽出
       for (let j = 0; j <= lines.length - 3; j++) {
         const en = lines[j];
         const ja = lines[j + 1];
         const author = lines[j + 2];
 
-        // 名言3行セットの簡易判定（英語＋日本語＋出典）
+        // 英語、日本語、出典らしい形式であるかを確認
         if (/[a-zA-Z]/.test(en) && /[ぁ-んァ-ン一-龯]/.test(ja) && /（.*?）/.test(author)) {
           const row = document.createElement('tr');
           row.innerHTML = `
@@ -38,7 +35,7 @@ document.getElementById('pdf-upload').addEventListener('change', async (e) => {
           `;
           tbody.appendChild(row);
           dayCounter++;
-          j += 2; // 次のセットへスキップ
+          j += 2; // 次の名言セットへ（3行分進める）
         }
       }
     }
