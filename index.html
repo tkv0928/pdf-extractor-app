@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>PDF名言抽出ツール</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="pdf.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <h1>PDF名言抽出ツール（横並び3列）</h1>
+  <input type="file" id="pdf-upload" accept="application/pdf">
+  <table id="result-table">
+    <thead>
+      <tr>
+        <th>日付（推測）</th>
+        <th>日本語</th>
+        <th>英語</th>
+        <th>出典</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</body>
+</html>
