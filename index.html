@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PDF名言抽出ツール</title>
   <link rel="stylesheet" href="style.css">
-  <script src="pdf.min.js"></script>
+  
+  <!-- CDNからpdf.jsを読み込み -->
+  <script src="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.min.js"></script>
   <script defer src="app.js"></script>
 </head>
 <body>
   <h1>PDF名言抽出ツール（横並び3列）</h1>
-  <input type="file" id="pdf-upload" accept="application/pdf">
+  
+  <label for="pdf-upload">PDFファイルを選択:</label>
+  <input type="file" id="pdf-upload" accept="application/pdf" title="PDFファイルを選択してください">
+
   <table id="result-table">
     <thead>
       <tr>
