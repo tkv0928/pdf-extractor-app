@@ -11,21 +11,12 @@
   <script defer src="app.js"></script>
 </head>
 <body>
-  <h1>PDF名言抽出ツール（横並び3列）</h1>
+   <h1>PDF全テキスト表示ツール</h1>
 
   <label for="pdf-upload">PDFファイルを選択:</label>
   <input type="file" id="pdf-upload" accept="application/pdf" title="PDFファイルを選択してください">
 
-  <table id="result-table">
-    <thead>
-      <tr>
-        <th>日付（推測）</th>
-        <th>日本語</th>
-        <th>英語</th>
-        <th>出典</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+  <!-- ↓ 抽出結果表示用のブロック -->
+  <div id="output"></div>
 </body>
 </html>
